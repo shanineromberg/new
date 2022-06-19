@@ -1,4 +1,4 @@
-name:2 Jobs one after the other needs
+name: 2 Jobs one after the other 
 
 on: [push]
 
