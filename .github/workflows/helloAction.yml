@@ -1,0 +1,15 @@
+name: Java Action With Params And ID.yml
+
+on: [push]
+
+jobs:
+    run-git-hub-actions:
+      runs-on: ubuntu-latest
+      steps:
+        - name: hello action
+          id: greet
+          uses: actions/hello-world-javascript-action@v1
+          with:
+           who-to-greet: shani
+        - name: log greeting time
+          run: echo "${{steps.greet.outputs.time}}"
