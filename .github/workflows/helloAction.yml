@@ -6,6 +6,12 @@ jobs:
     run-git-hub-actions:
       runs-on: ubuntu-latest
       steps:
+        - name: checkout action
+          uses: actions/checkout@v1
+        - name: list of the files after checkout
+          run: |
+           pwd
+           ls -a
         - name: hello action
           id: greet
           uses: actions/hello-world-javascript-action@v1
