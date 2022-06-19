@@ -16,7 +16,7 @@ jobs:
            echo $GIT_REPOSITORY
            echo $GIT_WOEKSPACE
            echo "${{github.token}}"
-        - name: hello action2
+        - name: hello action3
           id: greet
           uses: actions/hello-world-javascript-action@v1
           with:
