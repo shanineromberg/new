@@ -1,0 +1,31 @@
+name: Java Action with filter on trigger
+
+on:
+  push:
+    branches:
+      - "develop"
+    tags:
+        - v1.*
+    paths-ignore:
+      - "doc/**"
+jobs:
+    run-git-hub-actions:
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout action
+          uses: actions/checkout@v1
+        - name: list of the files after checkout
+          run: |
+           pwd
+           ls -a
+           echo $GIT_SHA
+           echo $GIT_REPOSITORY
+           echo $GIT_WOEKSPACE
+           echo "${{github.token}}"
+        - name: hello action3
+          id: greet
+          uses: actions/hello-world-javascript-action@v1
+          with:
+           who-to-greet: shani
+        - name: log greeting time
+          run: echo "${{steps.greet.outputs.time}}"
