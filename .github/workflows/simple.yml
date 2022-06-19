@@ -1,9 +1,9 @@
-name: shell Commands1
+name: shell Commands 2 Jobs on parallel
 
 on: [push]
 
 jobs:
-    run-shell-command:
+    run-shell-command1:
       runs-on: ubuntu-latest
       steps:
         - name: echo a string
@@ -11,11 +11,24 @@ jobs:
         - name: echo a string
           run: |
             node -v
-            npm -v 
-                
+            npm -v            
         - name: python  Command
           run: |
             import platform
             print(platform.processor())
           shell: python
-        
+             
+    run-shell-command2:
+      runs-on: ubuntu-latest
+      steps:
+        - name: echo a string
+          run: echo "hello"
+        - name: echo a string
+          run: |
+            node -v
+            npm -v                
+        - name: python  Command
+          run: |
+            import platform
+            print(platform.processor())
+          shell: python       
