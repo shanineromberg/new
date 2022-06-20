@@ -1,4 +1,4 @@
-name: Java Action With Params And ID.yml
+name: Java Action With Params And ID
 
 on: [push]
 
