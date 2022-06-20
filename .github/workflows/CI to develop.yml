@@ -1,0 +1,42 @@
+name: CI to "develop"
+
+on: 
+  pull_request:
+    branches: ["develop"]
+
+jobs:
+    Test1:
+      runs-on: ubuntu-latest
+      steps:
+        - name: checkout action
+          uses: actions/checkout@v1
+        - name: use node js
+          uses: actions/setup-node@v1
+        - name: echooooooooo a string that will fail
+          run: echoooooooooooo "hello"
+          continue-on-error: true
+        - name: echo a string that will pass ( commands)
+          run: |
+            node -v
+            npm -v            
+        - name: python  Command
+          run: |
+            import platform
+            print(platform.processor())
+          shell: python
+             
+    Test2:
+      runs-on: ubuntu-latest
+      needs: [Test1]
+      steps:
+        - name: echo a string
+          run: echo "hello1"
+        - name: echo a string
+          run: |
+            node -v
+            npm -v                
+        - name: python  Command
+          run: |
+            import platform
+            print(platform.processor())
+          shell: python
